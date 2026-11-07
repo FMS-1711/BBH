@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111111">
+  <meta name="description" content="Bismillah Burger House, Vapi — juicy burgers, fresh ingredients and bold flavours. Explore our menu and order on WhatsApp.">
+  <title>Bismillah Burger House | Best Burger In Town</title>
+  <link rel="icon" href="images/logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet"
+href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="announcement"><span>FRESHLY PREPARED • BIG ON FLAVOUR</span><span>VALSAD, GUJARAT</span></div>
+  <header class="site-header">
+    
+<a class="brand" href="#home" aria-label="Bismillah Burger House home">
+    <img src="images/logo.png" alt="Bismillah Burger House logo" class="brand-mark">
+
+    <img src="images/brand-name.png" alt="Bismillah Burger House" class="brand-name">
+</a>
+
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Open navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="main-nav" id="mainNav">
+      <a class="active" href="#home">Home</a><a href="#story">Our Story</a><a href="#offers">Offers</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a>
+    </nav>
+    <!-- <button class="cart-trigger" id="openCart"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h2l2.1 11.1a2 2 0 0 0 2 1.6h8.7a2 2 0 0 0 1.9-1.4L22 7H6M10 20a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm8 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"/></svg><span>Cart</span><b id="cartCount">0</b></button> -->
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> WELCOME TO BISMILLAH BURGER HOUSE</p>
+        <!-- <h1>BITE INTO<br><em>HAPPINESS.</em></h1> -->
+         <h1>BEST BURGER<br><span>IN TOWN.</span></h1>
+        <p class="hero-text">Juicy burgers, fresh ingredients and unforgettable flavours — made to satisfy every craving.</p>
+        <div class="hero-actions"><a class="button button-outline" href="#journey">Find Our Store</a></div>
+        <!-- <div class="hero-note"><i></i> BEST BURGER IN TOWN <i></i></div> -->
+      </div>
+      <div class="hero-visual"><div class="hero-glow"></div><img src="images/hero-burger 1.png" alt="A loaded Bismillah-style cheeseburger"></div>
+      <!-- <div class="hero-stamp"><strong>BIG</strong><span>FLAVOUR<br>ALWAYS</span></div> -->
+    </section>
+    
+
+<!-- BRAND JOURNEY MAP -->
+<section class="journey-section" id="journey">
+
+    <div class="journey-heading">
+        <p class="eyebrow centered">OUR JOURNEY ACROSS GUJARAT</p>
+        <h2>THE JOURNEY <em>CONTINUES.</em></h2>
+        <p>From our beginnings to our next destination.</p>
+    </div>
+
+    <div class="journey-map-wrap">
+        <div id="journeyMap"></div>
+
+        <div class="map-caption">
+            <span class="map-live-dot"></span>
+            OUR JOURNEY • GUJARAT
+        </div>
+    </div>
+
+
+<div class="journey-timeline">
+
+    <div class="journey-stop" onclick="showLocation('Valsad')">
+        <span class="stop-dot"></span>
+        <strong>Valsad</strong>
+        <small>OUR JOURNEY</small>
+    </div>
+
+    <div class="journey-stop" onclick="showLocation('Chikhli')">
+        <span class="stop-dot"></span>
+        <strong>Chikhli</strong>
+        <small>OUR JOURNEY</small>
+    </div>
+
+    <div class="journey-stop" onclick="showLocation('Bardoli')">
+        <span class="stop-dot"></span>
+        <strong>Bardoli</strong>
+        <small>OUR JOURNEY</small>
+    </div>
+
+    <div class="journey-stop" onclick="showLocation('Amboli')">
+        <span class="stop-dot"></span>
+        <strong>Amboli</strong>
+        <small>OUR JOURNEY</small>
+    </div>
+
+    <div class="journey-stop" onclick="showLocation('Pardi')">
+        <span class="stop-dot"></span>
+        <strong>Pardi</strong>
+        <small>OUR JOURNEY</small>
+    </div>
+
+    <div class="journey-stop" onclick="showLocation('Vapi')">
+    <span class="stop-dot"></span>
+    <strong>Vapi</strong>
+    <small>NOW OPEN</small>
+</div>
+
+<div class="journey-stop" onclick="showLocation('Navsari')">
+    <span class="stop-dot"></span>
+    <strong>Navsari</strong>
+    <small>COMING SOON</small>
+</div>
+
+</div>
+
+<!-- DESTINATION INFORMATION CARD -->
+
+<div class="location-details" id="locationDetails">
+
+    <div>
+        <p class="eyebrow">DESTINATION DETAILS</p>
+        <h3 id="locationName">Explore Our Journey</h3>
+        <p id="locationAddress">
+            Select a destination to view its address.
+        </p>
+        <p id="locationPhone"></p>
+        <span id="locationStatus"></span>
+    </div>
+
+    <a href="#" id="locationMap"
+       class="button button-red"
+       target="_blank"
+       rel="noopener"
+       style="display:none;">
+       View on Google Maps ↗
+    </a>
+
+</div>
+    
+
+</section>
+
+
+<!-- FRANCHISE OPPORTUNITY SECTION -->
+
+<section class="franchise-section" id="franchise">
+
+    <div class="franchise-content">
+
+        <p class="eyebrow">GROW WITH BISMILLAH</p>
+
+        <h2>
+            OWN YOUR<br>
+            <em>BURGER STORY.</em>
+        </h2>
+
+        <p class="franchise-description">
+            Love great food and dream of running your own business?
+            Become a part of Bismillah Burger House and bring our
+            burger experience to your city.
+        </p>
+
+        <div class="franchise-highlights">
+            <span>✳ A GROWING BRAND</span>
+            <span>✳ NEW OPPORTUNITIES</span>
+            <span>✳ YOUR CITY, OUR BRAND</span>
+        </div>
+
+        <button
+    type="button"
+    class="button button-red franchise-button"
+    id="openFranchiseForm">
+    ENQUIRE FOR FRANCHISE ↗
+</button>
+
+    </div>
+
+    
+<div class="franchise-visual">
+    <img
+        src="images/franchise-store.png"
+        alt="Bismillah Burger House restaurant storefront"
+        class="franchise-store-image"
+    >
+</div>
+
+
+</section>
+
+
+    <section class="features" aria-label="Why choose us">
+      <article><span class="feature-icon">✳</span><div><h3>Fresh Ingredients</h3><p>Quality in every bite.</p></div></article> 
+      <article><span class="feature-icon">♡</span><div><h3>Made With Love</h3><p>Flavour worth coming back for.</p></div></article>
+      <article><span class="feature-icon">◇</span><div><h3>Great Taste</h3><p>Big cravings, bigger taste.</p></div></article>
+      <article><span class="feature-icon">★</span><div><h3>Highly Rated</h3><p>Highest rating on ZOMATO.</p></div></article>
+    </section>
+
+    <!-- <section class="menu-section section-wrap" id="menu">
+      <div class="section-heading"><p class="eyebrow centered">THE GOOD STUFF</p><h2>EXPLORE OUR <em>MENU</em></h2><p>Find your new favourite. Every bite brings the flavour.</p></div>
+      <div class="menu-toolbar"><div class="filters" id="filters" aria-label="Filter menu"><button class="filter active" data-filter="All">All items</button><button class="filter" data-filter="Chicken">Chicken</button><button class="filter" data-filter="Cheese">Cheese</button><button class="filter" data-filter="Special">Specials</button><button class="filter" data-filter="Sides">Sides</button></div><span class="menu-count" id="menuCount">8 items</span></div>
+      <div class="product-grid" id="productGrid" aria-live="polite"></div>
+    </section> -->
+
+    <section class="offer-band" id="offers"><div class="offer-copy"><p class="eyebrow">GOOD TIMES COME IN COMBOS</p><h2>MAKE IT A<br><em>MEAL DEAL.</em></h2><p>Bring your appetite. We've got the rest covered.</p><a href="#journey" class="button button-light">Visit our Store <span>↗</span></a></div><div class="offer-art"><div class="offer-circle">COMBO<br><b>TIME</b></div><div class="offer-food">🍔 <span>+</span> 🍟 <span>+</span> 🥤</div></div><div class="offer-number">01 / SPECIAL</div></section>
+
+    <section class="story-section section-wrap" id="story"><div class="story-image"><img src="images/about-kitchen.jpg" alt="Fresh burger being prepared in the kitchen"><span class="image-caption">FRESH FROM OUR KITCHEN</span></div><div class="story-copy"><p class="eyebrow">A LITTLE ABOUT US</p><h2>MADE WITH PASSION.<br><em>SERVED WITH LOVE.</em></h2><p>At Bismillah Burger House, we believe a great burger should be generous, satisfying and full of flavour. We bring together fresh ingredients and crave-worthy combinations to make every visit a good one.</p></div></section>
+
+    <!-- <section class="reviews-section" id="reviews"><div class="section-wrap"><div class="section-heading"><p class="eyebrow centered">DON'T JUST TAKE OUR WORD</p><h2>THE LOVE IS <em>REAL.</em></h2><p>A good burger makes a good day even better.</p></div><div class="review-grid"><article class="review-card"><div class="stars">★★★★★</div><p>“The burger was delicious and full of flavour. Definitely coming back!”</p><div class="review-person"><span>AS</span><div><strong>Happy customer</strong><small>Local food lover</small></div></div></article><article class="review-card"><div class="stars">★★★★★</div><p>“Fresh, satisfying and just what I was craving. The fries are a must.”</p><div class="review-person"><span>FK</span><div><strong>Happy customer</strong><small>Burger fan</small></div></div></article><article class="review-card"><div class="stars">★★★★★</div><p>“Great taste and generous portions. A lovely spot for burger lovers.”</p><div class="review-person"><span>RM</span><div><strong>Happy customer</strong><small>Regular visitor</small></div></div></article></div><p class="review-disclaimer">Sample testimonials for layout preview — replace with genuine customer reviews before publishing.</p></div></section> -->
+        
+<section class="reviews-section" id="reviews">
+  <div class="section-wrap">
+
+    <div class="section-heading">
+      <p class="eyebrow centered">REAL WORDS FROM OUR CUSTOMERS</p>
+      <h2>THE LOVE IS <em>REAL.</em></h2>
+      <p>Don't just take our word for it. Read what our customers say.</p>
+    </div>
+
+    <div class="google-reviews-box">
+      <div class="google-review-icon">G</div>
+
+      <div class="google-review-content">
+        <h3>Find us on Google</h3>
+        <p>Explore genuine customer reviews of Bismillah Burger House, Valsad.</p>
+        <span class="google-review-note">Real reviews. Real experiences.</span>
+      </div>
+
+      <div class="google-review-actions">
+        <a
+          href="https://www.google.com/maps/search/?api=1&query=Bismillah+Burger+House+Valsad"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="button button-red">
+          READ GOOGLE REVIEWS ↗
+        </a>
+
+        <a
+          href="https://www.google.com/maps/search/?api=1&query=Bismillah+Burger+House+Valsad"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="google-write-link">
+          WRITE A REVIEW ↗
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="contact-minimal" id="contact">
+    <div class="contact-inner">
+
+        <div class="contact-content">
+            <span class="contact-eyebrow">GET IN TOUCH</span>
+
+            <h2>Visit <span>Us</span></h2>
+
+            <p class="contact-description">
+                We'd love to serve you. Visit us for a delicious experience.
+            </p>
+
+            <div class="contact-address">
+                <div class="contact-icon">⌖</div>
+                <div>
+                    <span class="contact-label">OUR LOCATION</span>
+                    <p>
+                        Shop No. 4, Sagar Apartment,<br>
+                        Shahid Chowk, Valsad,<br>
+                        Gujarat, India.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Add contact number here later -->
+             <div class="contact-phone">
+    <div class="contact-icon">☎</div>
+    <div>
+        <span class="contact-label">CONTACT NUMBER</span>
+        <p>
+            <a href="tel:YOUR_PHONE_NUMBER">+91 78619 29971</a>
+        </p>
+    </div>
+</div>
+
+        </div>
+
+        <div class="contact-logo">
+            <img src="images/contact-logo.png"
+                 alt="Bismillah Burger House Logo">
+        </div>
+
+    </div>
+</section>
+
+
+    <!-- <section class="contact-section section-wrap" id="contact"><div class="contact-copy"><p class="eyebrow">YOUR NEXT BURGER IS CLOSE</p><h2>COME HUNGRY.<br><em>LEAVE HAPPY.</em></h2><div class="contact-detail"><span class="detail-icon">⌖</span><div><small>FIND US</small><p>Godal Nagar, Koparli Road,<br>Opp. Asha Dham School, Vapi – 396191</p></div></div><div class="contact-detail"><span class="detail-icon">◷</span><div><small>OPENING HOURS</small><p>Update with your actual opening hours</p></div></div><a class="button button-red" href="https://www.google.com/maps/search/?api=1&query=Bismillah+Burger+House+Vapi" target="_blank" rel="noopener">Get Directions ↗</a></div><a class="map-card" href="https://www.google.com/maps/search/?api=1&query=Bismillah+Burger+House+Vapi" target="_blank" rel="noopener" aria-label="Find Bismillah Burger House on Google Maps"><div class="map-grid"></div><span class="map-pin">●</span><div class="map-label"><strong>Bismillah Burger House</strong><small>Godal Nagar, Vapi</small></div><span class="map-open">OPEN IN MAPS ↗</span></a></section> -->
+    <!-- FRANCHISE ENQUIRY POPUP -->
+
+<div class="franchise-modal" id="franchiseModal">
+
+    <div class="franchise-modal-content">
+
+        <button type="button"
+                class="franchise-close"
+                id="closeFranchiseForm"
+                aria-label="Close form">
+            &times;
+        </button>
+
+        <p class="eyebrow">BISMILLAH BURGER HOUSE</p>
+
+        <h2>FRANCHISE <em>ENQUIRY</em></h2>
+
+        <p class="modal-description">
+            Tell us a little about yourself and the location
+            where you want to open your franchise.
+        </p>
+
+        <form id="franchiseForm">
+
+            <div class="form-field">
+                <label for="franchiseName">Full Name</label>
+                <input type="text" id="franchiseName"
+                       placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-field">
+                <label for="franchiseMobile">Mobile Number</label>
+                
+<input type="tel" id="franchiseMobile"
+       placeholder="Enter mobile number"
+       pattern="[0-9+()\s-]{7,20}" required>
+
+            </div>
+
+            <div class="form-row">
+
+                <div class="form-field">
+                    <label for="franchiseCity">City</label>
+                    <input type="text" id="franchiseCity"
+                           placeholder="Your city" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="franchiseState">State</label>
+                    <input type="text" id="franchiseState"
+                           placeholder="Your state" required>
+                </div>
+
+            </div>
+
+            <div class="form-field">
+                <label for="franchiseCountry">Country</label>
+                <input type="text" id="franchiseCountry"
+                       value="India" required>
+            </div>
+
+            <button type="submit"
+                    class="button button-red franchise-submit">
+                SUBMIT ENQUIRY ↗
+            </button>
+
+            <p id="franchiseSuccess" class="form-success" hidden>
+                ✓ Thank you for your interest! Our team will contact you soon.
+            </p>
+
+        </form>
+
+    </div>
+</div>
+  </main>
+
+  
+<footer class="site-footer">
+    <a class="brand" href="#home" aria-label="Bismillah Burger House home">
+        <img src="images/logo.png" alt="Bismillah Burger House logo" class="brand-mark">
+        <img src="images/brand-name.png" alt="Bismillah Burger House" class="brand-name">
+    </a>
+
+    <p>BIG BURGERS. BIGGER FLAVOUR.</p>
+
+    <span class="copyright">
+        © <span id="year"></span> Bismillah Burger House. All rights reserved.
+    </span>
+</footer>
+
+
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart" aria-hidden="true"><div class="drawer-head"><div><p class="eyebrow">YOUR ORDER</p><h2>Your Cart <span id="drawerCount">(0)</span></h2></div><button class="close-drawer" id="closeCart" aria-label="Close cart">×</button></div><div class="cart-lines" id="cartLines"><div class="empty-cart"><span>🍔</span><h3>Your cart is hungry.</h3><p>Add something delicious from the menu.</p><button class="button button-red" id="backToMenu">Browse menu</button></div></div><div class="drawer-bottom"><div class="subtotal"><span>Subtotal</span><strong id="cartTotal">₹0</strong></div><p class="cart-note">Delivery charges, if applicable, will be confirmed on WhatsApp.</p><button class="button whatsapp-button" id="whatsappOrder"><span>◉</span> Order on WhatsApp</button></div></aside>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
